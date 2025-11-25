@@ -1,0 +1,342 @@
+/* ========================================
+   Global Reset & Base Styles
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors - Minimal palette */
+    --color-bg: #fafaf8;
+    --color-text: #2a2a2a;
+    --color-text-light: #6b6b6b;
+    --color-link: #4169e1;
+    --color-link-hover: #1e3a8a;
+    
+    /* Typography */
+    --font-serif: 'Crimson Pro', serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* ========================================
+   Landing Page Specific
+   ======================================== */
+
+.landing-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.landing-container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Image Section */
+.landing-image {
+    margin-bottom: var(--spacing-md);
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.profile-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 3px solid var(--color-link);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.landing-name {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+/* Navigation Links */
+.landing-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: var(--spacing-lg);
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.landing-link {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    color: var(--color-link);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+.landing-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color-link);
+    transition: width 0.3s ease;
+}
+
+.landing-link:hover {
+    color: var(--color-link-hover);
+}
+
+.landing-link:hover::after {
+    width: 80%;
+}
+
+/* Footer */
+.landing-footer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid #e0e0e0;
+    animation: fadeInUp 0.8s ease-out 0.6s backwards;
+}
+
+.footer-link {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.footer-link:hover {
+    color: var(--color-link);
+}
+
+.footer-link .icon {
+    font-size: 1rem;
+}
+
+/* ========================================
+   Shared Styles for All Pages
+   ======================================== */
+
+/* Page Container (for other pages) */
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Page Header */
+.page-header {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.page-title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+}
+
+.page-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-link);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--color-link-hover);
+    transform: translateX(-4px);
+}
+
+.back-link::before {
+    content: '← ';
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.content-section h2 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+}
+
+.content-section h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+}
+
+.content-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.content-section li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.content-section li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-link);
+    font-weight: bold;
+}
+
+/* Link Styles */
+.content-section a {
+    color: var(--color-link);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.content-section a:hover {
+    border-bottom-color: var(--color-link);
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .landing-name {
+        font-size: 2rem;
+    }
+    
+    .landing-link {
+        font-size: 1.1rem;
+    }
+    
+    .landing-footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .content-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-page {
+        padding: 1rem;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .landing-name {
+        font-size: 1.5rem;
+    }
+}
